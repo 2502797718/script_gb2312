@@ -1,0 +1,16 @@
+#GIT
+##cd到本地目录 执行 git init 生成仓库
+##执行 git add . 将目录下所有文件添加到仓库  也可以添加指定文件 git add xxx
+##将上一步添加的文件commit到仓库 git commit -m "注释语句"
+##去github创建自己的repository
+###New repository ==> Create repository ==> 获得仓库http地址
+##关联本地仓库到github  git remote add origin https://自己的仓库url地址
+##上传代码  git push -u origin master
+
+#python
+##需求 
+###GB2312_12_12.c == > GB2312_12_12.so   (win 可以编译成 dll) 命令见代码
+###11.txt 需要产生对于字模的汉字 无需去重
+##生成font_gb2312.h 包含一个结构体数组
+
+#脚本多是一次性使用  留以纪念
