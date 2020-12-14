@@ -94,7 +94,7 @@ def create_c_struct_end(fpx):
 #预备文件  并调用接口
 os.system("gcc -shared -Wl,-soname,adder -o GB2312_12.so -fPIC /home/wang/test/22/11/GB2312_12_12.c")  #编译 调用C函数
 fp = open("/home/wang/test/22/11/11.txt",encoding="gb2312")
-fp1 = open("/home/wang/test/22/11/font_gb2312.h","w")
+fp1 = open("/home/wang/test/22/11/font_gb2312.h","w",encoding="gb2312")
 GB2312_12 = ctypes.CDLL("./GB2312_12.so")  
 
 #构造24*char数组
