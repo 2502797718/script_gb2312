@@ -1,3 +1,5 @@
+# coding : gb2312
+# 产生按gb2312code h*256+l 的顺序排列的列表
 import os
 import ctypes  #调用C函数
 
@@ -88,7 +90,29 @@ def create_c_struct_end(fpx):
     fpx.write("#endif") 
     pass
 
+def compare_str_gb2312(str1, str2, len):
+    for i in range(len):
+        num0 = str1.encode("gb2312")[0]*256 + str1.encode("gb2312")[1];
+        num1 = str2.encode("gb2312")[0]*256 + str2.encode("gb2312")[1];
+        if num0 < num1:
+            return 1
+            pass
+        else:
+            return 0
+            pass
+        pass
+    pass
 
+
+def insert_sort2(listd, value):
+    for i in range(len(listd)):
+        if compare_str_gb2312(value,listd[i],1):
+            listd.insert(i,value)
+            return 
+            pass
+        pass
+    listd.append(value)
+    pass
 
 
 #预备文件  并调用接口
@@ -109,7 +133,10 @@ characters = fp.readlines()
 for i in range(len(characters)):
     for j in range(len(characters[i])):
         if search(charact_w, characters[i][j]) == 0:
-            charact_w.append(characters[i][j])
+            if characters[i][j] == '\n':
+                continue
+            insert_sort2(charact_w, characters[i][j])
+            #charact_w.append(characters[i][j])
             pass
         pass
     pass
@@ -128,3 +155,6 @@ fp1.close()
 
 print(len(charact_w))
 print(charact_w)
+
+for i in range(len(charact_w)):
+    print(charact_w[i].encode("gb2312")[0]*256 + charact_w[i].encode("gb2312")[1], end='\t')
