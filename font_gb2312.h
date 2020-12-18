@@ -3,8 +3,8 @@
 
 typedef struct _font_gb2312
 {
-	char *p;
-	char font[24];
+	unsigned char *p;
+	unsigned char font[24];
 } font_gb2312;
 
 font_gb2312 font_12[] =
