@@ -99,6 +99,10 @@ uint16_t dichotomy(void* list1, uint16_t len, void * val1)
         }
         
     }
+    if(middle_num == val_num)
+    {
+        return middle;
+    }
     return len;
 
 }
