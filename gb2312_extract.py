@@ -1,7 +1,7 @@
 # coding : gb2312
-# äº§ç”ŸæŒ‰gb2312code h*256+l çš„é¡ºåºæ’åˆ—çš„åˆ—è¡¨
+# ÅÅĞò gb2312code h*256+l 
 import os
-import ctypes  #è°ƒç”¨Cå‡½æ•°
+import ctypes  #ÒıÓÃCÎÄ¼ş
 
 
 def byte_strhex(b1):
@@ -9,7 +9,7 @@ def byte_strhex(b1):
     a = hex(a)
     return str(a)
    
-#æ”¯æŒåŒå±‚[][]
+#ËÑË÷Ö¸¶¨ÔªËØ
 def search(list_str, str):
     count = 0
     for i in range(len(list_str)):
@@ -18,7 +18,7 @@ def search(list_str, str):
     return count
 
 '''
-æ„é€ æ•°ç»„
+æ„é€ æ•°ç»?
 {
     char p[2];
     char font[24];
@@ -88,6 +88,7 @@ def create_c_struct_end(fpx):
     fpx.write('\n')
     fpx.write('\n')
     fpx.write("#endif") 
+    fpx.write('\n')
     pass
 
 def compare_str_gb2312(str1, str2, len):
@@ -115,13 +116,13 @@ def insert_sort2(listd, value):
     pass
 
 
-#é¢„å¤‡æ–‡ä»¶  å¹¶è°ƒç”¨æ¥å£
-os.system("gcc -shared -Wl,-soname,adder -o GB2312_12.so -fPIC /home/wang/test/22/11/GB2312_12_12.c")  #ç¼–è¯‘ è°ƒç”¨Cå‡½æ•°
-fp = open("/home/wang/test/22/11/11.txt",encoding="gb2312")
-fp1 = open("/home/wang/test/22/11/font_gb2312.h","w",encoding="gb2312")
+#´ò¿ª¶ÔÓ¦ÎÄ¼ş
+os.system("gcc -shared -Wl,-soname,adder -o GB2312_12.so -fPIC ./GB2312_12_12.c")  #ç¼–è¯‘ è°ƒç”¨Cå‡½æ•°
+fp = open("./11.txt",encoding="gb2312")
+fp1 = open("./font_gb2312.h","w",encoding="gb2312")
 GB2312_12 = ctypes.CDLL("./GB2312_12.so")  
 
-#æ„é€ 24*charæ•°ç»„
+#¹¹½¨Êı×é
 buff_type = ctypes.c_char*24
 buff = buff_type()
 point_buff = ctypes.pointer(buff)  
